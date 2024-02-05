@@ -42,11 +42,11 @@ const Dashboard = () => {
     <>
       <div className="spacing1"></div>
 
-      <div className="footprint pt-5 min-h-[80vh]">
+      <div className="footprint mt-3 pt-5 min-h-[80vh]">
         <h1 className="dash">My Carbon Footprint Dashboard</h1>
         {Auth.loggedIn() ? (
           <div>
-            <h1 className="text-center text-[35px]">Hey! {username}</h1>
+            <h1 className="text-center text-[35px]">Hey {username} ! </h1>
             <section className="my-footprint" style={{ gap: "100px" }}>
               <div>
                 {homeData?.length || travelData?.length ? (

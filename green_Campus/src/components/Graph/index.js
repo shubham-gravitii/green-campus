@@ -6,22 +6,26 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function Graph(graphData) {
   let electricityEmissions =
-    graphData.graphData.homeData[0].electricityEmissions;
-  let vehicleEmissions = graphData.graphData.travelData[0].vehicleEmissions;
-  let planeEmissions = graphData.graphData.travelData[0].planeEmissions;
-  let waterEmissions = graphData.graphData.homeData[0].waterEmissions;
-  let heatEmissions = graphData.graphData.homeData[0].heatEmissions;
+    graphData.graphData.homeData[graphData.graphData.homeData.length-1].electricityEmissions;
+  
+  let vehicleEmissions = graphData.graphData.travelData[graphData.graphData.travelData.length-1].collegeBusEmissions;
+  let TwoWheelersEmissions = graphData.graphData.travelData[graphData.graphData.travelData.length-1].twoVheelersEmissions;
+  let FourWheelersEmissions = graphData.graphData.travelData[graphData.graphData.travelData.length-1].fourVheelersEmissions;
+  let waterEmissions = graphData.graphData.homeData[graphData.graphData.homeData.length-1].waterEmissions;
+  let heatEmissions = graphData.graphData.homeData[graphData.graphData.homeData.length-1].fuelOilEmissions+graphData.graphData.homeData[graphData.graphData.homeData.length-1].naturalGasEmissions;
   let publicTransitEmissions =
-    graphData.graphData.travelData[0].publicTransitEmissions;
-
+    graphData.graphData.travelData[graphData.graphData.travelData.length-1].publicTransitEmissions;
+    let otherEmission = graphData.graphData.wasteData[graphData.graphData.wasteData.length-1].plasticWasteEmissions+graphData.graphData.wasteData[graphData.graphData.wasteData.length-1].paperWasteEmissions+graphData.graphData.wasteData[graphData.graphData.wasteData.length-1].metalWasteEmissions;
   const data = {
     labels: [
       'Electricity Emissions',
-      'Vehicle Emissions',
-      'Plane Emissions',
+      'College Bus Emissions',
+      'Two Wheelers Emissions',
       'Water Emissions',
       'Heat Emissions',
       'Public Transit Emissions',
+      'Four Wheelers Emissions',
+      'Other Waste',
     ],
     datasets: [
       {
@@ -29,10 +33,12 @@ export function Graph(graphData) {
         data: [
           electricityEmissions,
           vehicleEmissions,
-          planeEmissions,
+          TwoWheelersEmissions,
           waterEmissions,
           heatEmissions,
           publicTransitEmissions,
+          FourWheelersEmissions,
+          otherEmission,
         ],
         backgroundColor: [
           'rgba(162, 213, 159, 1)',
@@ -41,8 +47,12 @@ export function Graph(graphData) {
           'rgba(27, 80, 109, 1)',
           'rgba(44, 130, 179, 1)',
           'rgba(155, 209, 229, 1)',
+          'rgba(239, 222, 154, 1)',
+          'rgba(233, 110, 97, 1)',
         ],
         borderColor: [
+          'rgba(36, 59, 74, 1)',
+          'rgba(36, 59, 74, 1)',
           'rgba(36, 59, 74, 1)',
           'rgba(36, 59, 74, 1)',
           'rgba(36, 59, 74, 1)',

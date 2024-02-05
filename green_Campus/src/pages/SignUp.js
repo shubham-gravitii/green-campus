@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import AlertContext from '../Context/Alert/AlertContext'
+import LoaderContext from '../Context/LoaderContext'
 
 
 
@@ -18,6 +19,8 @@ export default function SignUp() {
   })
   const context = useContext(AlertContext);
   const {  setnotificationMsg } = context;
+  const context1=useContext(LoaderContext);
+  const {setisLoading}=context1;
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -38,8 +41,8 @@ export default function SignUp() {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    console.log(formState)
     event.preventDefault();
+    setisLoading(true);
     // use try/catch instead of promises to handle errors
     try {
       const { data } = await addUser({
@@ -53,6 +56,7 @@ export default function SignUp() {
       setnotificationMsg(e.message)
       console.error(e.message);
     }
+    setisLoading(false)
   };
 
   return (
@@ -160,6 +164,7 @@ export default function SignUp() {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
+                                    required={true}
                                     type="text"
                                     name="username"
                                     value={formState.username}
@@ -177,6 +182,8 @@ export default function SignUp() {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
+                                    required={true}
+
                                     type="email"
                                     name="email"
                                     value={formState.email}
@@ -194,6 +201,7 @@ export default function SignUp() {
                             </label>
                             <div className="flex flex-col items-start">
                                 <input
+                                    required={true}
                                     type="password"
                                     onChange={handleChange}
                                     value={formState.password}

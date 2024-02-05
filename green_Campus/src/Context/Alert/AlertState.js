@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 const LoginState = (props) => {
   const [notificationMsg, setnotificationMsg] = useState("");
   const notify = () => toast(notificationMsg);
- 
+
   // const startAlert=(message)=>{
   //   setnotificationMsg(message,()=>{
       
@@ -24,10 +24,10 @@ const LoginState = (props) => {
   return (
     <AlertContext.Provider value={{ notificationMsg, setnotificationMsg }}>
         <ToastContainer
-          position="top-right"
+          position="top-center"
           autoClose={5000}
           hideProgressBar={false}
-          newestOnTop={false}
+          newestOnTop={true}
           closeOnClick
           rtl={false}
           pauseOnFocusLoss

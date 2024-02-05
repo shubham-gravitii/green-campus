@@ -20,16 +20,9 @@
     color: black;
     padding: 10px;
     position: absolute;
-    bottom: 30px;
+    bottom: 200px;
     border-radius: 20px;
     /* backdrop-filter: blur(1px); */
-}
-@media screen and (max-width:600px) {
-    .imgText{
-        bottom: 90px;
-        backdrop-filter: blur(40px);
-    }
-
 }
 .imgText h1{
     font-size: 3rem;
@@ -37,13 +30,27 @@
 .imgText h2{
     font-size: 1.5rem;
 }
+@media screen and (max-width:600px) {
+    .imgText{
+        bottom: 20px;
+        backdrop-filter: blur(40px);
+    }
+    .imgText h1{
+        font-size: 2.5rem;
+    }
+    .imgText h2{
+        font-size: 1.5rem;
+    }
+
+}
+
 
 .getStartedBtn{
     border: 2px solid black;
     margin-top: 20px;
     padding: 10px 20px;
     border-radius: 25px;
-    width: 200px;
+    width: 150px;
     
     
 

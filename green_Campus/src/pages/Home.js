@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/home.css";
 import { Link } from "react-router-dom";
 import MeanCountry from "./assets/js/meanCountry";
@@ -7,18 +7,18 @@ import MeanCountryAnnual from "./assets/js/meanCountryAnnual";
 import MeanHousehold from "./assets/js/meanHousehold";
 import Auth from "../utils/auth";
 import bgHome1 from "../assets/images/bg-2.jpg";
-import bgHome2 from '../assets/images/bg-mobile.jpg'
+import bgHome2 from "../assets/images/bg-mobile.jpg";
 import "../styles/home.css";
 //import ControlledCarousel from './Slider';
 
 const Home = () => {
-  const [width, setwidth] = useState(window.innerWidth)
+  const [width, setwidth] = useState(window.innerWidth);
   useEffect(() => {
-    if(window.innerWidth<600){
-      setwidth(window.innerWidth)
+    if (window.innerWidth < 600) {
+      setwidth(window.innerWidth);
     }
-  },[width])
-  
+  }, [width]);
+
   // const tempLocation=useLocation();
   // const location=tempLocation.pathname
   // const navbarId=document.getElementById("navbarID")
@@ -34,25 +34,29 @@ const Home = () => {
           <Carousel slides={slides} />
         </div> */}
         <div className="bgHome">
-          <img src={width<600?bgHome2:bgHome1} alt="" className="bgHomeImg" />
+          <img
+            src={width < 600 ? bgHome2 : bgHome1}
+            alt=""
+            className="bgHomeImg"
+          />
           <div className="imgText">
             <h1>
-              Carbon <span>Footsteps</span>
+              Welcome to <br /> <span>Green Campus</span>
             </h1>
             <h2>
-              Find your carbon <span>footprint</span>.
+              A Mission to lessen the India's college campuses' carbon <span>footprint</span>.
             </h2>
 
             <div className="getStartedLink">
-            {Auth.loggedIn() ? (
-              <Link to="/calculator" className="w-auto">
-                <div className="getStartedBtn">Get Started</div>
-              </Link>
-            ) : (
-              <Link to="/login" className="">
-                <div className="getStartedBtn">Get Started</div>
-              </Link>
-            )}
+              {Auth.loggedIn() ? (
+                <Link to="/calculator" className="w-auto">
+                  <div className="getStartedBtn">Get Started</div>
+                </Link>
+              ) : (
+                <Link to="/login" className="">
+                  <div className="getStartedBtn">Get Started</div>
+                </Link>
+              )}
             </div>
           </div>
           {/* <div className="absolute bottom-14 lg:bottom-[20%] z-10 text-white flex-column justify-center w-[100%]">

@@ -27,68 +27,69 @@ const MyFootprint = () => {
       {Auth.loggedIn() ? (
         <div>
           <section className="my-footprint">
+            <h1 className='flex justify-center text-[60px] mt-5'>My FootPrint</h1>
             <div>
               {homeData?.length || travelData?.length || wasteData?.length ? (
                 <div className="footprint-data">
                   <div className=" hoverbox">
                     <h3>{username}'s Carbon Footprint</h3>
                     <p>
-                      Water emissions: <span className={`${homeData[0].waterEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[0].waterEmissions)}{' '}</span>
+                      Water emissions: <span className={`${homeData[homeData.length-1].waterEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[homeData.length-1].waterEmissions)}{' '}</span>
                       kg CO2
                     </p>
                     <p>
                       Electricity emissions:{' '}
-                      <span className={`${homeData[0].electricityEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[0].electricityEmissions)}</span> kg CO2
+                      <span className={`${homeData[homeData.length-1].electricityEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[homeData.length-1].electricityEmissions)}</span> kg CO2
                     </p>
                     <p>
-                      Natural GAS emissions: <span className={`${homeData[0].naturalGasEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[0].naturalGasEmissions)}</span> kg
+                      Natural GAS emissions: <span className={`${homeData[homeData.length-1].naturalGasEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[homeData.length-1].naturalGasEmissions)}</span> kg
                       CO2
                     </p>
                     <p>
-                      Fuel Oil emissions: <span className={`${homeData[0].fuelOilEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[0].fuelOilEmissions)}</span> kg
+                      Fuel Oil emissions: <span className={`${homeData[homeData.length-1].fuelOilEmissions>5000 ? 'red':'green'}`}>{addCommas(homeData[homeData.length-1].fuelOilEmissions)}</span> kg
                       CO2
                     </p>
                     <p>
                       Four Wheeler emissions:{' '}
-                      <span className={`${travelData[0].fourVheelersEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[0].fourVheelersEmissions)}</span> kg CO2
+                      <span className={`${travelData[travelData.length-1].fourVheelersEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[travelData.length-1].fourVheelersEmissions)}</span> kg CO2
                     </p>
                     <p>
                       Public Transit emissions:{' '}
-                      <span className={`${travelData[0].publicTransitEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[0].publicTransitEmissions)}</span> kg CO2
+                      <span className={`${travelData[travelData.length-1].publicTransitEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[travelData.length-1].publicTransitEmissions)}</span> kg CO2
                     </p>
                     <p>
-                      Two Wheelers emissions: <span className={`${travelData[0].twoVheelersEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[0].twoVheelersEmissions)}</span>{' '}
+                      Two Wheelers emissions: <span className={`${travelData[travelData.length-1].twoVheelersEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[travelData.length-1].twoVheelersEmissions)}</span>{' '}
                       kg CO2
                     </p>
                     <p>
-                      College Bus emissions: <span className={`${travelData[0].collegeBusEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[0].collegeBusEmissions)}</span>{' '}
+                      College Bus emissions: <span className={`${travelData[travelData.length-1].collegeBusEmissions>5000 ? 'red':'green'}`}>{addCommas(travelData[travelData.length-1].collegeBusEmissions)}</span>{' '}
                       kg CO2
                     </p>
                     <p>
-                      Mess Food Waste: <span className={`${wasteData[0].messFoodEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[0].messFoodEmissions)}</span>{' '}
+                      Mess Food Waste: <span className={`${wasteData[wasteData.length-1].messFoodEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[wasteData.length-1].messFoodEmissions)}</span>{' '}
                       kg CO2
                     </p>
                     <p>
-                      Plastic Waste: <span className={`${wasteData[0].plasticWasteEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[0].plasticWasteEmissions)}</span>{' '}
+                      Plastic Waste: <span className={`${wasteData[wasteData.length-1].plasticWasteEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[wasteData.length-1].plasticWasteEmissions)}</span>{' '}
                       kg CO2
                     </p>
                     <p>
-                      Paper Waste: <span className={`${wasteData[0].paperWasteEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[0].paperWasteEmissions)}</span>{' '}
+                      Paper Waste: <span className={`${wasteData[wasteData.length-1].paperWasteEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[wasteData.length-1].paperWasteEmissions)}</span>{' '}
                       kg CO2
                     </p>
                     <p>
-                      Metal Waste: <span className={`${wasteData[0].metalWasteEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[0].metalWasteEmissions)}</span>{' '}
+                      Metal Waste: <span className={`${wasteData[wasteData.length-1].metalWasteEmissions>5000 ? 'red':'green'}`}>{addCommas(wasteData[wasteData.length-1].metalWasteEmissions)}</span>{' '}
                       kg CO2
                     </p>
                     <p className="total">
                       Your total Carbon Footprint:{' '}
                       {addCommas(
-                        homeData[0].naturalGasEmissions +homeData[0].fuelOilEmissions +
-                          homeData[0].electricityEmissions +
-                          homeData[0].waterEmissions +
-                          travelData[0].fourVheelersEmissions +travelData[0].twoVheelersEmissions +
-                          travelData[0].publicTransitEmissions +travelData[0].collegeBusEmissions +
-                          wasteData[0].messFoodEmissions+wasteData[0].plasticWasteEmissions+wasteData[0].paperWasteEmissions+wasteData[0].metalWasteEmissions
+                        homeData[homeData.length-1].naturalGasEmissions +homeData[homeData.length-1].fuelOilEmissions +
+                          homeData[homeData.length-1].electricityEmissions +
+                          homeData[homeData.length-1].waterEmissions +
+                          travelData[travelData.length-1].fourVheelersEmissions +travelData[travelData.length-1].twoVheelersEmissions +
+                          travelData[travelData.length-1].publicTransitEmissions +travelData[travelData.length-1].collegeBusEmissions +
+                          wasteData[wasteData.length-1].messFoodEmissions+wasteData[wasteData.length-1].plasticWasteEmissions+wasteData[wasteData.length-1].paperWasteEmissions+wasteData[wasteData.length-1].metalWasteEmissions
                       )}{' '}
                       kg CO2
                     </p>
@@ -96,19 +97,19 @@ const MyFootprint = () => {
                   </div>
 
                   <div className="graph">
-                    <Graph graphData={{ homeData, travelData }} />
+                    <Graph graphData={{ homeData, travelData ,wasteData}} />
                   </div>
                   {/* <div className="graph1">
                     <ApexChart graphData={travelData} />
                   </div> */}
                   <div className="graph1">
-                    <ApexChart1 graphData={travelData} />
+                    <ApexChart1 graphData={[travelData[travelData.length-1]]} />
                   </div>
                   <div className="graph1">
-                    <ApexChart2 graphData={homeData} />
+                    <ApexChart2 graphData={[homeData[homeData.length-1]]} />
                   </div>
                   <div className="graph1">
-                    <ApexChart3 graphData={wasteData} />
+                    <ApexChart3 graphData={[wasteData[wasteData.length-1]]} />
                   </div>
                 </div>
               ) : (
