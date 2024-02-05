@@ -39,5 +39,5 @@ class AuthService {
     // this will reload the page and reset the state of the application
   }
 }
-
-export default new AuthService();
+const Auth=new AuthService()
+export default Auth;

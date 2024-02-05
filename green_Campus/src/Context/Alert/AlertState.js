@@ -13,12 +13,12 @@ const LoginState = (props) => {
     
   // }
   useEffect(() => {
-    
     if(notificationMsg!==""){
       notify();
       setnotificationMsg("")
-
+      
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [notificationMsg])
   
   return (

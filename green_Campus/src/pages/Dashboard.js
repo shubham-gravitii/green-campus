@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../assets/css/footprint.css";
 import { addCommas } from "../utils/helpers";
 import { useQuery } from "@apollo/client";
@@ -6,11 +6,12 @@ import { QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import ApexChart from "../components/ApexChart";
 import DashboardCard from "../components/DashboardCard";
-
+import LoaderContext from '../Context/LoaderContext'
 const Dashboard = () => {
   const { data, loading } = useQuery(QUERY_ME);
   const [newdata, setNewData] = useState([]);
-
+  const context=useContext(LoaderContext)
+  const {setisLoading}=context
   const { homeData, travelData, wasteData,username } = data?.me || [];
   useEffect(() => {
     if (homeData?.length && travelData?.length && wasteData?.length) {
@@ -33,11 +34,14 @@ const Dashboard = () => {
       }));
       setNewData(alldata);
     }
+    
   }, [homeData, travelData, wasteData]);
 
   if (loading) {
+    setisLoading(true)
     return <h2>LOADING...</h2>;
   }
+  setisLoading(false)
   return (
     <>
       <div className="spacing1"></div>

@@ -14,7 +14,7 @@ const Energy = () => {
               <img
                 className="postcard__img"
                 src="https://imgs.search.brave.com/QCTWLdRlXuBfwvpgHkGKqM6RmYvI0oFk-9nm23qTVeY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/aW5zdWxhdGlvbjRs/ZXNzLmNvbS91cGxv/YWRzL2ltYWdlcy9y/ZWZsZWN0aXZlLWlu/c3VsYXRpb24uanBn"
-                alt="Image Title"
+                alt="Title"
               />
             </a>
             <div className="postcard__text t-dark">
@@ -38,7 +38,7 @@ const Energy = () => {
               <img
                 className="postcard__img"
                 src="https://imgs.search.brave.com/plVIUvDN3ssqepKQ3Gvphyf-1grmljaUgFZ87yFuT-Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlc3BydWNlLmNv/bS90aG1iLzdkWTA5/NHlJcHBCRU9xc0d5/c0w3cEFBbjcxOD0v/Zml0LWluLzE1MDB4/MTAwMC9maWx0ZXJz/Om5vX3Vwc2NhbGUo/KTptYXhfYnl0ZXMo/MTUwMDAwKTpzdHJp/cF9pY2MoKS9tYWdp/Yy1jaGVmLWNvbXBh/Y3QtZWxlY3RyaWMt/d2hpdGUtbWNzZHJ5/MTV3LTE1LWN1LWZ0/LWxhdW5kcnktZHJ5/ZXItYjA4NzQ3NDAz/ZjFhNDYzMGE2NDdl/NTM4Yjg1Yjk2Njcu/anBn"
-                alt="Image Title"
+                alt="Title"
               />
             </a>
             <div className="postcard__text t-dark">
@@ -64,7 +64,7 @@ const Energy = () => {
               <img
                 className="postcard__img"
                 src="https://imgs.search.brave.com/h8kwCbb_UiZ9hZS_v2WBpbd-8QIva2RapqpNajb0eLA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/Y25ldC5jb20vYS9p/bWcvcmVzaXplLzJl/MWExYjMzYzNmYzFl/NTc0NTIyNWMxNDI0/M2EyOWE5Mzg3M2Zl/YzgvaHViLzIwMjQv/MDEvMTAvMjRmNmY0/NzEtNDYwYy00M2Nk/LTgxMDQtOTY0NjQ5/OGQ0ZTU0L2ltZy0w/ODI5LmpwZz9hdXRv/PXdlYnAmZml0PWNy/b3AmaGVpZ2h0PTY3/NSZ3aWR0aD0xMjAw"
-                alt="Image Title"
+                alt="Title"
               />
             </a>
             <div className="postcard__text t-dark">
@@ -92,7 +92,7 @@ const Energy = () => {
               <img
                 className="postcard__img"
                 src="https://imgs.search.brave.com/LXIORNv3HDyZwS-SB9bhGFf6c1w54DpiOqd8hBSsCRM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/dHRndG1lZGlhLmNv/bS9ybXMvb25saW5l/SW1hZ2VzL2lvdGEt/c21hcnRfaG9tZV9t/b2JpbGUuanBn"
-                alt="Image Title"
+                alt="Title"
               />
             </a>
             <div className="postcard__text t-dark">

@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
  import Pledges from '../components/Pledges';
 import { Graph } from '../components/Graph';
 import { addCommas } from '../utils/helpers.js';
+// eslint-disable-next-line
 import '../assets/css/footprint.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
@@ -10,13 +11,16 @@ import Auth from '../utils/auth';
 import ApexChart1 from '../components/usage/comp.js';
 import ApexChart2 from '../components/usage/comp2.js';
 import ApexChart3 from '../components/usage/comp3.js';
-
+import LoaderContext from '../Context/LoaderContext'
 const MyFootprint = () => {
+  const context=useContext(LoaderContext)
+  const {setisLoading}=context
   const { data, loading } = useQuery(QUERY_ME);
 
   const { username, homeData, travelData,wasteData } = data?.me || [];
 
   if (loading) {
+    setisLoading(true)
     return <h2>LOADING...</h2>;
   }
 
@@ -141,6 +145,7 @@ const MyFootprint = () => {
           </Link>
         </div>
       )}
+      {setisLoading(false)}
     </div>
   );
 };

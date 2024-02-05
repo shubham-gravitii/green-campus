@@ -21,7 +21,7 @@
     
   }
   .spinner-container {
-    
+    background-color: white;
     backdrop-filter: blur(20px);
     display: grid;
     position: fixed;

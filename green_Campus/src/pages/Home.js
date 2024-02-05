@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext} from "react";
 import "../assets/css/home.css";
 import { Link } from "react-router-dom";
 import MeanCountry from "./assets/js/meanCountry";
@@ -9,10 +9,14 @@ import Auth from "../utils/auth";
 import bgHome1 from "../assets/images/bg-2.jpg";
 import bgHome2 from "../assets/images/bg-mobile.jpg";
 import "../styles/home.css";
+import LoaderContext from '../Context/LoaderContext'
 //import ControlledCarousel from './Slider';
 
 const Home = () => {
+  const context=useContext(LoaderContext)
+  const {setisLoading}=context
   const [width, setwidth] = useState(window.innerWidth);
+  setisLoading(true)
   useEffect(() => {
     if (window.innerWidth < 600) {
       setwidth(window.innerWidth);
@@ -38,6 +42,9 @@ const Home = () => {
             src={width < 600 ? bgHome2 : bgHome1}
             alt=""
             className="bgHomeImg"
+            onLoad={()=>{
+              setisLoading(false)
+            }}
           />
           <div className="imgText">
             <h1>

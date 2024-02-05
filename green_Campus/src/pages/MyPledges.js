@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext} from "react";
 import { Icon } from "@iconify/react";
 import { useQuery, useMutation } from "@apollo/client";
 import Confetti from "react-dom-confetti";
 import { Link } from "react-router-dom";
-
+import LoaderContext from '../Context/LoaderContext'
 import "../assets/css/mypledges.css";
 import { QUERY_ME } from "../utils/queries";
 import { REMOVE_PLEDGE } from "../utils/mutations";
@@ -16,6 +16,8 @@ import {
 
 const MyPledges = () => {
   // get data from Me query
+  const context=useContext(LoaderContext)
+  const {setisLoading}=context
   const { data, loading } = useQuery(QUERY_ME);
   const myPledges = data?.me.pledgeData || [];
   // state for recording completed pledge ids to change button text
@@ -92,9 +94,10 @@ const MyPledges = () => {
 
   // loading message if waiting on data
   if (loading) {
+    setisLoading(true)
     return <h2>LOADING...</h2>;
   }
-
+  
   return (
     <div
       className={
@@ -187,6 +190,7 @@ const MyPledges = () => {
           </Link>
         </div>
       )}
+      {setisLoading(false)}
     </div>
   );
 };
