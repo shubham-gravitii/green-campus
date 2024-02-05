@@ -161,25 +161,6 @@ const Navbar = () => {
       );
     } else {
       return (
-        // <div className={isNavExpanded ? "menuNav expanded" : "menuNav"}>
-        //   <div className={isMenuClicked ? "menu-icon-close" : "menu-icon-open"}>
-        //     <ul className="">
-        //       <Link to="/">
-        //         <li>Home</li>
-        //       </Link>
-        //       <Link to="/about">
-        //         <li>About</li>
-        //       </Link>
-        //       <Link to="/login">
-        //         <li>Log In</li>
-        //       </Link>
-        //       <Link to="/signup">
-        //         <li>Sign Up</li>
-        //       </Link>
-        //     </ul>
-        //   </div>
-        // </div>
-
         <Menu
           menuItemStyles={{
             button: {
@@ -267,10 +248,9 @@ const Navbar = () => {
         ref={newRef}
       >
         <div
-          className={`sideImg ${isSidebarExpanded ? "hidden" : ""}`}
+          className={`sideImg ${isSidebarExpanded ? "hidden" : ""} cursor-pointer`}
           onClick={() => {
             setisSidebarExpanded(!isSidebarExpanded);
-            console.log(isSidebarExpanded);
           }}
         >
           <img src={SideMenuImg} alt="" className="hamburger" />
