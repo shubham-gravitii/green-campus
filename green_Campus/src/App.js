@@ -33,8 +33,6 @@ import LoaderContext from './Context/LoaderContext'
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_BACKEND_URL || "http://localhost:3001/graphql",
 });
-const URL = process.env.REACT_APP_BACKEND_URL;
-console.log(URL);
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {

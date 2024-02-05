@@ -16,7 +16,13 @@ const Home = () => {
   const context=useContext(LoaderContext)
   const {setisLoading}=context
   const [width, setwidth] = useState(window.innerWidth);
-  setisLoading(true)
+  useEffect(() => {
+    setisLoading(true)
+    
+    
+    // eslint-disable-next-line
+  }, [])
+  
   useEffect(() => {
     if (window.innerWidth < 600) {
       setwidth(window.innerWidth);

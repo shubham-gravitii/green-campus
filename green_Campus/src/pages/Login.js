@@ -12,43 +12,27 @@ import bgSignIn from "../assets/images/bg-home.jpg";
 import LoaderContext from "../Context/LoaderContext";
 
 export default function SignIn() {
-  // javascript code
-  // useEffect(() => {
-  //   const loginText = document.querySelector(".title-text .login");
-  //   const loginForm = document.querySelector("form.login");
-  //   const loginBtn = document.querySelector("label.login");
-  //   const signupBtn = document.querySelector("label.signup");
-  //   const signupLink = document.querySelector("form .signup-link a");
-  //   signupBtn.onclick = () => {
-  //     loginForm.style.marginLeft = "-50%";
-  //     loginText.style.marginLeft = "-50%";
-  //   };
-  //   loginBtn.onclick = () => {
-  //     loginForm.style.marginLeft = "0%";
-  //     loginText.style.marginLeft = "0%";
-  //   };
-  //   signupLink.onclick = () => {
-  //     signupBtn.click();
-  //     return false;
-  //   };
-  // }, []);
-
-  // Javascript code end
+  
   const navigate = useNavigate();
   useEffect(() => {
     if (Auth.loggedIn()) {
       navigate("/");
     }
   });
-
+  useEffect(() => {
+    setisLoading(true);
+  
+    // eslint-disable-next-line
+  }, [])
+  
   const contextAlert = useContext(AlertContext);
   const { setnotificationMsg } = contextAlert;
   const context = useContext(LoaderContext);
   const { setisLoading } = context;
 
   const [formState, setFormState] = useState({ email: "", password: "" });
+  // eslint-disable-next-line
   const [login, { error }] = useMutation(LOGIN);
-  console.log(error);
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -83,17 +67,17 @@ export default function SignIn() {
   };
   return (
     <div className="loginContainer">
-      <img src={bgSignIn} alt="" className="bgLoginImg" />
+      <img src={bgSignIn} alt="" className="bgLoginImg" onLoad={()=>{setisLoading(false)}} />
       <div className="formLogin absolute flex flex-col justify-center  overflow-hidden ">
-        <div className="w-full p-6 m-auto  rounded-md shadow-md lg:max-w-xl">
-          <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
+        <div className=" formLoginInside  w-full p-[20px] m-auto  rounded-md shadow-md lg:max-w-xl">
+          <h1 className="text-3xl font-semibold text-center text-purple-700 ">
             Sign in
           </h1>
           <form className="mt-6">
             <div className="mb-2">
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold text-white"
+                className="block text-md font-semibold text-black"
               >
                 Email
               </label>
@@ -108,7 +92,7 @@ export default function SignIn() {
             <div className="mb-2">
               <label
                 htmlFor="password"
-                className="block text-sm font-semibold text-white"
+                className="block text-md font-semibold text-white"
               >
                 Password
               </label>

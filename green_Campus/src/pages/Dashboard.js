@@ -36,7 +36,7 @@ const Dashboard = () => {
     }
     
   }, [homeData, travelData, wasteData]);
-
+  
   if (loading) {
     setisLoading(true)
     return <h2>LOADING...</h2>;
